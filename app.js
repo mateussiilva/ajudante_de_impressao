@@ -3,9 +3,7 @@ const maquinas = {
     1604: "PrismaJet",
     1602: "Mutoh",
 }
-    
-
-function preencherSelectMaquinas(objectMaquinas,tagHTMLSelect){
+function preencherSelectMaquinas(objectMaquinas, tagHTMLSelect) {
     // let selectMaquinas = .getElementById("imaquinas")
     for (let maquina in objectMaquinas) {
         let selectMaquina = document.createElement("option");
@@ -15,46 +13,61 @@ function preencherSelectMaquinas(objectMaquinas,tagHTMLSelect){
         tagHTMLSelect.append(selectMaquina)
     }
 }
-
-
-function calcularMetrosFaltantes(metros,porcentagemAtual){
-    let pCem = (porcentagemAtual /100)
+function calcularMetrosFaltantes(metros, porcentagemAtual) {
+    let pCem = (porcentagemAtual / 100)
     let metrosImpressos = pCem * metros
     let metrosFaltantes = metros - metrosImpressos
     return metrosFaltantes
 }
+function TempoTotalImpressao(metros, idMaquina) {
+    const MINUTOS = 60;
+    if (idMaquina == 0) {
+        let metrosMaquinaPorHora = 58
+        let minutosImpressao = Math.round((metros * MINUTOS) / metrosMaquinaPorHora)
+        let resultado = `${minutosImpressao} min`
+        return resultado
+    } else if (idMaquina == 1) {
+        let metrosMaquinaPorHora = 17
+        let minutosImpressao = Math.round((metros * MINUTOS) / metrosMaquinaPorHora)
+        let resultado = `${minutosImpressao} min`
+        return resultado
 
- 
-
-
-
+    } else if (idMaquina == 2) {
+        let metrosMaquinaPorHora = 9
+        let minutosImpressao = Math.round((metros * MINUTOS) / metrosMaquinaPorHora)
+        let resultado = `${minutosImpressao} min`
+        return resultado
+    }
+}
 let selectMaquinas = document.getElementById("imaquinas")
-preencherSelectMaquinas(maquinas,selectMaquinas)
+preencherSelectMaquinas(maquinas, selectMaquinas)
 
-document.addEventListener("submit", (e)=>{
+document.addEventListener("submit", (e) => {
     e.preventDefault()
     let maquinaSelecionada = selectMaquinas.options[selectMaquinas.selectedIndex].text
     let inpPorcentagemImpressao = parseInt(document.querySelector("#iporcenteagem").value);
     let quantidadeMetros = parseFloat(document.querySelector("#imetros").value);
-    const metrosFaltantes = calcularMetrosFaltantes(metros=quantidadeMetros,porcentagemAtual=inpPorcentagemImpressao)
-    
-    if(maquinaSelecionada !== NaN && quantidadeMetros !== NaN){
-        switch (maquinaSelecionada){
+    let areaTexResultado = document.querySelector("#areaResultado");
+
+    const metrosFaltantes = calcularMetrosFaltantes(metros = quantidadeMetros, porcentagemAtual = inpPorcentagemImpressao)
+
+
+    if (maquinaSelecionada !== NaN && quantidadeMetros !== NaN) {
+        switch (maquinaSelecionada) {
             case "PrismaTex":
-                console.log(metrosFaltantes)
-                break 
+                var res = TempoTotalImpressao(quantidadeMetros, 0)
+                break
             case "PrismaJet":
-                console.log(metrosFaltantes)
-                break 
+                var res = TempoTotalImpressao(quantidadeMetros, 1)
+                break
             case "Mutoh":
-                console.log(metrosFaltantes)
-                break  
+                var res = TempoTotalImpressao(quantidadeMetros, 2)
+                break
             default:
                 0
-
-
         }
     }
-    console.log(maquinaSelecionada)
-    
+    areaTexResultado.innerHTML = res
+    console.log(res)
+
 })
