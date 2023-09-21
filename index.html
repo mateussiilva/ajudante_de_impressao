@@ -4,31 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Contas</title>
+    <title>Ajudante de impressão</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 90%;
+            height: 90%;
+            background-color: purple;
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+            border-radius: 8px;
+
+        }
+
+        section {
+            /* background-color: honeydew; */
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+
+        }
+
+        label {
+            /* display: inline-block; */
+            width: 50%;
+        }
+
+        input {
+            /* display: inline-block; */
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
     <main>
-        <form action="POST">
+        <div class="container">
+
             <section>
                 <label for="iporcenteagem">Porcentagem</label>
                 <input type="number" name="formmaquinas" id="iporcenteagem" min="0" max="100">
             </section>
             <section>
                 <label for="imetros">Metros</label>
-                <input type="number" name="formmaquinas" id="imetros" min="0" step="0.1">
+                <input type="number" name="formmaquinas" id="imetros" min="0" step="0.01">
             </section>
             <section>
                 <label for="imaquinas">Selecione a Maquina</label>
                 <select name="formmaquinas" id="imaquinas"></select>
             </section>
-            <input type="submit" value="Calcular">
+            <input type="button" value="Calcular" onclick="calcular()">
+            <!-- <input type="submit" value="Calcular"> -->
             <div>
                 <div>
                     <p id="areaResultado"></p>
                 </div>
             </div>
-        </form>
+        </div>
     </main>
 
 </body>

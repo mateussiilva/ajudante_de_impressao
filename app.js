@@ -26,6 +26,7 @@ function TempoTotalImpressao(metros, idMaquina) {
         let minutosImpressao = Math.round((metros * MINUTOS) / metrosMaquinaPorHora)
         let resultado = `${minutosImpressao} min`
         return resultado
+
     } else if (idMaquina == 1) {
         let metrosMaquinaPorHora = 17
         let minutosImpressao = Math.round((metros * MINUTOS) / metrosMaquinaPorHora)
@@ -42,8 +43,9 @@ function TempoTotalImpressao(metros, idMaquina) {
 let selectMaquinas = document.getElementById("imaquinas")
 preencherSelectMaquinas(maquinas, selectMaquinas)
 
-document.addEventListener("submit", (e) => {
-    e.preventDefault()
+
+
+function calcular() {
     let maquinaSelecionada = selectMaquinas.options[selectMaquinas.selectedIndex].text
     let inpPorcentagemImpressao = parseInt(document.querySelector("#iporcenteagem").value);
     let quantidadeMetros = parseFloat(document.querySelector("#imetros").value);
@@ -70,4 +72,4 @@ document.addEventListener("submit", (e) => {
     areaTexResultado.innerHTML = res
     console.log(res)
 
-})
+}
