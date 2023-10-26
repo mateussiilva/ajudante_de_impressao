@@ -3,16 +3,8 @@ const maquinas = {
     1604: "PrismaJet",
     1602: "Mutoh",
 }
-function preencherSelectMaquinas(objectMaquinas, tagHTMLSelect) {
-    // let selectMaquinas = .getElementById("imaquinas")
-    for (let maquina in objectMaquinas) {
-        let selectMaquina = document.createElement("option");
-        let valorMaquina = objectMaquinas[maquina.toString()]
-        selectMaquina.value = maquina
-        selectMaquina.text = valorMaquina
-        tagHTMLSelect.append(selectMaquina)
-    }
-}
+
+
 function calcularMetrosFaltantes(metros, porcentagemAtual) {
     let pCem = (porcentagemAtual / 100)
     let metrosImpressos = pCem * metros
@@ -40,13 +32,11 @@ function TempoTotalImpressao(metros, idMaquina) {
         return resultado
     }
 }
-let selectMaquinas = document.getElementById("imaquinas")
-preencherSelectMaquinas(maquinas, selectMaquinas)
-
 
 
 function calcular() {
-    let maquinaSelecionada = selectMaquinas.options[selectMaquinas.selectedIndex].text
+    let maquinaSelecionada = document.querySelector('input[name="maquinas"]:checked')
+
     let inpPorcentagemImpressao = parseInt(document.querySelector("#iporcenteagem").value);
     let quantidadeMetros = parseFloat(document.querySelector("#imetros").value);
     let areaTexResultado = document.querySelector("#areaResultado");
@@ -70,6 +60,6 @@ function calcular() {
         }
     }
     areaTexResultado.innerHTML = res
-    console.log(res)
+    console.log(res,maquinaSelecionada)
 
 }
