@@ -63,3 +63,28 @@ function calcular() {
     console.log(res,maquinaSelecionada)
 
 }
+
+const MINUTOS = 60;
+class CalcularImpressao{
+    constructor(nomeMaquina,metros){
+        this.name = nomeMaquina
+        this.metrosImpressao = metros
+        
+    }
+
+    TempoTotalImpressao(){
+        switch (this.name){
+            case 1:
+                break
+            default:
+                break
+        }
+    }
+
+    
+}
+
+
+calc = new Calcular("Mateus");
+
+calc.hello()
