@@ -1,2 +1,8 @@
 # Ignorar venv python
 .venv/
+
+*.jpg
+*.jpeg
+*.bmp
+*.png
+*.pdf
