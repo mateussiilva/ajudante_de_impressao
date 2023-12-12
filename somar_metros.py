@@ -41,6 +41,6 @@ def main(path):
 		print(soma)
 
 
-if _name_ == "_main_":
+if __name__ == "_main_":
 	PATH = r"\\Storage-silkart\IMPRESSAO\25 10 2023"
 	main(PATH)
