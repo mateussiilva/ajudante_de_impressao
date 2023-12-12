@@ -1,5 +1,8 @@
 #!/usr/bin/env nodejs
 
-import {CalcularImpressao} from "./main"
 
 
+
+document.addEventListener("submit", event => {
+    event.preventDefault()
+})

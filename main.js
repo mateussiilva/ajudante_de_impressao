@@ -5,6 +5,7 @@ const MINUTOS = 60;
 const METROS_MUTOH = 9;
 const METROS_JET = 17;
 const METROS_TEX = 58;
+
 class CalcularImpressao{
     constructor(nomeMaquina,metrosPorHora=null){
         this.name = nomeMaquina
