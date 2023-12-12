@@ -4,49 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Contas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Ajudante de Impressão</title>
 </head>
 
 <body>
     <main>
-        <section class="box">
-            <form>
-                <section class="field">
-                    <label for="iporcenteagem">Porcentagem</label>
-                    <input class="input is-hovered" type="number" name="formmaquinas" id="iporcenteagem" min="0"
-                        max="100">
-                </section>
-                <section class="field">
-                    <label for="imetros">Metros</label>
-                    <input class="input is-hovered" type="number" name="formmaquinas" id="imetros" min="0" step="0.1">
-                </section class="field">
-
-                <section class="control">
-                    <label class="radio">
-                        Mutoh
-                        <input type="radio" name="maquinas" class="maquinas"  checked> 
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="maquinas" class="maquinas"> PrismaJet
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="maquinas" class="maquinas"> PrismaTex
-                    </label>
-                </section class="field">
-                
-                <button class="button" onclick="calcular()">Calcular Metragem</button>
-
-                <div class="field">
-                    <div>
-                        <p id="areaResultado"></p>
-                    </div>
-                </div>
-            </form>
-        </section>
+        <form id="form_tempo_de_impressao">
+            <div>
+                <label for="imetros">Metros:</label>
+                <input type="number" step="0.1" name="metros" id="imetros">
+            </div>
+            <div>
+                <label for="iimpressoras">Impressora:</label>
+                <select name="impressoras" id="iimpressoras">
+                    <option value="1604">Mutoh</option>
+                    <option value="1602">PrismaJet</option>
+                    <option value="1904">PrismaTex</option>
+                </select>
+            </div>
+        </form>
     </main>
-
 </body>
-<script src="app.js"></script>
 
 </html>
