@@ -16,10 +16,12 @@ function calcularTempoImpressao(metros_por_minuto, metros) {
 function TempoDeImpressão() {
     let metrosImpressao = parseFloat(document.querySelector("#imetros").value);
     let impressoraSelecionada = document.querySelector("#iimpressoras").value;
+    let areaResultado = document.querySelector("#iresultado")
     for (impresora in configuracoesImpressoras) {
         if (impresora === impressoraSelecionada) {
             let metrosPorMinuto = configuracoesImpressoras[impresora]
-            alert(`${calcularTempoImpressao(metrosPorMinuto, metrosImpressao)} minutos`)
+            let msg =`${calcularTempoImpressao(metrosPorMinuto, metrosImpressao)} minutos`
+            areaResultado.innerText = msg
         }
     }
 

@@ -5,25 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajudante de Impressão</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header>
+
+    </header>
+
     <main>
-        <form id="form_tempo_de_impressao">
-            <div>
-                <label for="imetros">Metros:</label>
-                <input type="number" step="0.1" name="metros" id="imetros">
-            </div>
-            <div>
-                <label for="iimpressoras">Impressora:</label>
-                <select name="impressoras" id="iimpressoras">
-                    <option value="1604">Mutoh</option>
-                    <option value="1602">PrismaJet</option>
-                    <option value="1904">PrismaTex</option>
-                </select>
-            </div>
-        </form>
+        <section class="form">
+            <form id="form_tempo_de_impressao">
+                <div>
+                    <label for="imetros">Metros:</label>
+                    <input type="number" step="0.1" name="metros" id="imetros">
+                </div>
+                <div>
+                    <label for="iimpressoras">Impressora:</label>
+                    <select name="impressoras" id="iimpressoras">
+                        <option value="1604">Mutoh</option>
+                        <option value="1602">PrismaJet</option>
+                        <option value="1904">PrismaTex</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Tempo de Impressão: <span id="iresultado"></span></p>
+                </div>
+                <div>
+                    <input type="button" value="Calcular Tempo de Impressão" onclick="TempoDeImpressão()">
+                </div>
+            </form>
+        </section>
+
+
     </main>
 </body>
+<script src="app.js"></script>
 
 </html>
