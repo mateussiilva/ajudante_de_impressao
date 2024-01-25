@@ -10,11 +10,18 @@ def lerlinhasarquivo(filename):
 RELATORIO = r"arquivos_testes/relatorio.txt"
 textoteste = "RETIRADA PELA MANHÃ:"
 arquivoinicial = lerlinhasarquivo(RELATORIO)
+arquivo = open("relatorio.md","w+")
 print(type(arquivoinicial))
 # print(arquivoinicial)
 for linha in arquivoinicial:
-    if len(linha) > 0:
-        utlchar = linha[-2]
-        if  utlchar == ":":
-            print(linha)
-
+    try:
+        utlchar = linha[-2] if len(linha) > 0 else None
+    except:
+        pass
+    if  utlchar == ":":
+        newline = f"## {linha}\n"
+        arquivo.write(newline)
+    elif len(linha) > 0:
+        newline = f"- [ ] {linha}\n"
+        arquivo.write(newline)
+arquivo.close()
