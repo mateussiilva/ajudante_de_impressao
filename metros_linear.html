@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajudante de impressão</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <section class="form">
+        <form action="#">
+            <div>
+                <label for="imedida">Medida Painel</label>
+                <input type="text" name="medida painel" id="imedida" placeholder="larguraXaltura">
+            </div>
+            <div>
+                <label for="iemenda">Tipo de emenda</label>
+                <select name="tipo de emenda" id="iemenda">
+                    <option value="h">Horizontal</option>
+                    <option value="v">Vertical</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="resultado emenda" id="area_resultado_emendas" cols="30" rows="10"  ></textarea>
+            </div>
+            <div>
+
+                <input type="button" value="Calcular" onclick="calcularEmenda()">
+            </div>
+        </form>
+    </section>
+</body>
+<script>
+    const LENPLACA = 150
+    function calcularMetrosLinear(largura,altura){
+        const result = document.querySelector("#area_resultado_emendas")
+        let x = largura / LENPLACA
+        let metros = x * altura
+        console.log(metros)
+        result.value = metros.toFixed(2)
+    }
+
+
+    function calcularEmenda() {
+        let textMedida = document.querySelector("#imedida").value
+        let medida = textMedida.split("x")
+        let [w, l] = medida.map((n) => { return Number(n) })
+        calcularMetrosLinear(w,l)
+
+    }
+
+</script>
+
+</html>
