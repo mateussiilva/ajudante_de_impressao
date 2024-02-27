@@ -1,10 +1,1 @@
-# Ignorar venv python
-.venv/
-images/
-assets/
-
-*.jpg
-*.jpeg
-*.bmp
-*.png
-*.pdf
+.venv
